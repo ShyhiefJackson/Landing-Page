@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shyhief Jackson | Professional Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #1a120c;        /* Deep Mahogany / Dark Wood Tone */
+            --card-bg: #271c14;      /* Weathered Rustic Card Fill */
+            --accent: #d97706;       /* Warm Amber / Gold Accent */
+            --accent-border: #92400e;/* Burnt Copper Border */
+            --text-main: #f5f0eb;    /* Off-white Cream Text */
+            --text-muted: #d1c2b4;   /* Weathered Parchment Subtext */
+            --border: #443121;       /* Dark Leather Border */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            background-image: radial-gradient(#2b1e16 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border: 3px double var(--accent-border);
+            background-color: var(--card-bg);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid var(--accent-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* About Section Layout */
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Gallery Grid with Rustic Image Styling */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .gallery-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            padding: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+            filter: contrast(108%) sepia(15%);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent-border);
+            border-radius: 2px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+
+        .card .institution {
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 0.4rem;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .job-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        ul {
+            list-style-type: square;
+            list-style-position: inside;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-border);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 3px double var(--accent-border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shyhief Jackson</h1>
+            <div class="subtitle">IT Specialist & Operations Professional</div>
+            <div class="contact-info">
+                <span>Philadelphia, PA</span>
+                <span>•</span>
+                <a href="mailto:shyhiefjackson215@gmail.com">shyhiefjackson215@gmail.com</a>
+                <span>•</span>
+                <span>+1 267 792 0967</span>
+            </div>
+        </header>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    I am a young, determined, and educated professional with a relentless drive for personal growth and excellence. 
+                    I thrive at the intersection of hands-on technical problem-solving and operational leadership, constantly seeking new 
+                    opportunities to expand my knowledge, master skills, and advance in the tech industry.
+                </p>
+                <p>
+                    Beyond my technical training, I am deeply passionate about sports, animal welfare, and continuous self-improvement. 
+                    Whether mastering new network infrastructure tools, pushing my physical and mental discipline through sports, or pursuing 
+                    my next educational milestone, I bring energy, focus, and dedication to everything I do.
+                </p>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="photo-gallery">
+                <div class="gallery-card">
+                    <img src="suit.jpg" alt="Shyhief Jackson in White Suit">
+                </div>
+                <div class="gallery-card">
+                    <img src="grad1.jpg" alt="Shyhief Jackson Graduation with Diploma">
+                </div>
+                <div class="gallery-card">
+                    <img src="grad2.jpg" alt="Shyhief Jackson Graduation Cap and Gown">
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Operating Systems Basics</h3>
+                    <div class="institution">Per Scholas / Cisco Networking Academy</div>
+                    <div class="date">Completed: July 15, 2026</div>
+                </div>
+                <div class="card">
+                    <h3>Computer Hardware Basics</h3>
+                    <div class="institution">Per Scholas / Cisco Networking Academy</div>
+                    <div class="date">Completed: July 14, 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical & Professional Skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">Computer Hardware & OS</span>
+                <span class="skill-tag">Access Control Systems</span>
+                <span class="skill-tag">Video Surveillance</span>
+                <span class="skill-tag">Network & Cabling Installation</span>
+                <span class="skill-tag">Low Voltage Systems</span>
+                <span class="skill-tag">Burglar & Fire Alarms</span>
+                <span class="skill-tag">Security & Incident Reporting</span>
+                <span class="skill-tag">Customer Service & Leadership</span>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="card" style="margin-bottom: 1.2rem;">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Security Professional</span> — <span class="company">Allied Universal</span>
+                    </div>
+                    <div class="job-date">Sept 2023 – Present</div>
+                </div>
+                <ul>
+                    <li>Monitored and authorized employee/visitor entry to safeguard premises[cite: 3].</li>
+                    <li>Wrote daily operational and incident reports on unusual occurrences[cite: 3].</li>
+                    <li>Preserved order and detected suspicious activities across posts[cite: 3].</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.2rem;">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">CSC Event Staff</span> — <span class="company">CSC Security</span>
+                    </div>
+                    <div class="job-date">Feb 2022 – Present</div>
+                </div>
+                <ul>
+                    <li>Managed queue line flow, crowd control, and event egress organization[cite: 3].</li>
+                    <li>Executed guest security screening, venue roaming, and concierge services[cite: 3].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Shift Leader</span> — <span class="company">Burger King</span>
+                    </div>
+                    <div class="job-date">Jan 2023 – June 2023</div>
+                </div>
+                <ul>
+                    <li>Managed guest transactions, food prep, and restaurant operations[cite: 3].</li>
+                    <li>Maintained facility hygiene and cleanliness standards[cite: 3].</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>High School Diploma</h3>
+                <div class="institution">Excel Academy</div>
+                <div class="date">Graduated: February 2023</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Shyhief Jackson. Hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+</body>
+</html>
